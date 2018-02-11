@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700')
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700')
+@import url('https://fonts.googleapis.com/css?family=Cardo')
+
+$layer-red-color: #e84545
+$gray-social-icons: #c6cacc
+
+$md-and-lg: 'only screen and(min-width: 768px) and (max-width: 1199px)'
+$md-only: 'only screen and (min-width: 768px) and (max-width: 991px)'
+$max-md: 'only screen and (max-width: 991px)'
+$max-sm: 'only screen and (max-width: 767px)'
+$max-xs: 'only screen and (max-width: 575px)'
+
+/* ===========================
+   General
+   =========================*/
+
+*
+  box-sizing: border-box
+  font-family: 'Raleway', sans-serif
+
+.container-fluid
+  padding: 0
+  
+ul
+  list-style: none
+  margin: 0
+  padding: 0
+  
+p
+  font-size: 13px
+
+.overflow-hidden
+  overflow: hidden
+  
+@media #{$max-sm}
+  #features, .team, .download
+    padding: 60px 0
+  
+/* ==========================
+   Social Icons
+   ========================*/
+
+.social-icons
+  display: flex
+  li
+    border: 1px solid
+    height: 40px
+    margin: 0 6px 0 0
+    text-align: center
+    width: 40px
+    a
+      display: block
+      i
+        font-size: 20px
+        line-height: 40px
+
+/* =========================
+   Header
+   =======================*/
+   
+.header
+  background: url(../images/Header-background.png)
+  min-height: 650px
+  @media #{$max-xs}
+    min-height: 450px
+  .navbar
+    justify-content: space-between
+    
+@media #{$md-only}
+  .header
+    .navbar
+      justify-content: center
+  
+@media #{$max-sm}
+  .navbar
+    display: flex
+    text-align: center
+    flex-direction: column
+  
+.navbar-nav
+  align-items: center
+  display: flex
+  flex-direction: row
+  height: 100px
+  .nav-link
+    background-size: 300%
+    background-position: 100% 0
+    border: 1px solid transparent
+    border-radius: 0.3em
+    color: #cccdd3
+    font-size: 13px
+    padding: 8px 10px
+    text-transform: uppercase
+    transition: 0.1s
+    &:hover
+      background-image: linear-gradient(90deg, #dc3545 50%, transparent 50%)
+      background-position: 0 100%
+      border: 1px solid #dc3545
+      color: #fff
+      transition: 0.25s
+    &:active
+      background-image: linear-gradient(90deg, #a92935 50%, transparent 50%)
+      
+@media #{$max-sm}
+  .navbar-nav
+    flex-wrap: wrap
+    justify-content: space-between
+    .nav-link
+      flex-basis: 45%
+      line-height: 30px
+      background: #dc3545
+      margin: 0 0 10px
+      padding: 2px
+      &:last-child
+        flex-basis: 100%
+      
+@media #{$max-sm}
+  .navbar-brand
+    margin: 0 0 20px
+
+.jumbotron
+  background: transparent
+  padding-top: 80px
+  .display-4
+    color: #fff
+    font-family: 'Open Sans', sans-serif
+    margin: 0 auto 25px
+    text-transform: uppercase
+    max-width: 750px
+  .lead
+    color: #fff
+    margin-bottom: 60px
+  button
+    font-size: 13px
+    height: 45px
+    width: 200px
+    
+@media #{$max-sm}
+  .jumbotron
+    margin: 30px 0 0
+    padding: 0 0 30px
+    .lead
+      margin: 0 0 20px
+
+@media #{$max-xs}
+  .jumbotron
+    .display-4
+      font-size: 36px
+    .lead
+      font-size: 16px
+  
+
+/* ============================
+   Features section
+   ==========================*/
+    
+#features
+  padding: 125px 0
+  .feature:nth-child(-n+3)
+    margin: 0 0 60px
+  h4
+    font-size: 14px
+    font-weight: bold
+    margin: 20px 0
+    text-transform: uppercase
+  .rotate
+    animation: rotate 0.5s ease-in-out
+
+@media #{$md-only}
+  #features
+    .feature:nth-child(-n+4)
+      margin: 0 0 60px
+
+@media #{$max-xs}
+  #features
+    .feature
+      margin: 0 0 60px
+      
+@keyframes rotate
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+/* ===========================
+   Gallery
+   =========================*/
+   
+#works
+  .row
+    margin: 0
+  img
+    height: calc((100vw / 4) / 1.35)
+    width: 100%
+  .layer
+    background: linear-gradient($layer-red-color 50%, transparent 50%)
+    opacity: 0.9
+    bottom: 0
+    height: 201%
+    position: absolute
+    transition: 0.5s
+    width: 100%
+    h4
+      color: #fff
+      font-size: 14px
+      font-weight: bold
+      position: relative
+      top: 20%
+    p
+      color: #fff
+      position: relative
+      text-transform: uppercase
+      top: 21%
+    &:hover
+      animation: slide-down 0.3s
+      animation-fill-mode: forwards
+      
+  @keyframes slide-down
+    0%
+      bottom: 0
+    100%
+      bottom: -101%
+        
+  .modal-dialog
+    display: inline-block
+    max-width: none
+    .modal-body
+      img
+        height: auto
+        width: 600px
+      p
+        font-size: 16px
+        margin: 10px 0 0
+
+.modal-open
+  overflow: scroll
+  padding: 0 !important
+      
+@media #{$md-only}
+  #works
+    .layer
+      max-height: none
+      
+@media #{$max-md}
+  #works
+    img
+      height: calc((100vw / 2) / 1.35)
+      
+@media #{$max-xs}
+  #works
+    img
+      height: calc(100vw / 1.35)
+    
+/* ===========================
+   Team Section
+   =========================*/
+   
+#team
+  padding: 100px 0
+  img
+    margin: 0 0 30px
+  h3
+    font-size: 22px
+  h3 + p
+    color: $layer-red-color
+    margin: 0
+    text-transform: uppercase
+  p + p
+    font-size: 14px
+    margin: 20px 0
+    
+@media #{$md-and-lg}
+  #team
+    .team__member
+      margin: 0 0 30px 0
+      
+@media #{$max-md}
+  #team
+    .team_member
+      margin: 0 0 30px
+      
+@media #{$max-sm}
+  #team
+    padding: 100px 0 30px
+    
+.social-icons-team
+  @extend .social-icons
+  li
+    border-color: $gray-social-icons
+    &:hover
+      background: $gray-social-icons
+      a
+        color: #fff
+  a
+    color: $gray-social-icons
+    font-size: 14px
+    
+/* ==============================
+   Company Slides section
+   ============================*/
+  
+#testimonials
+  .carousel-item
+    height: calc(100vw / 4)
+    .carousel-inner__img
+      flex: 50%
+      img
+        width: 100%
+    .quotes-slide
+      flex: 50%
+      padding: 70px 150px 150px 70px
+  
+@media #{$md-and-lg}
+  #testimonials .carousel-item .quotes-slide
+    padding: 50px
+    
+@media #{$md-only}
+  #testimonials .carousel-item .quotes-slide
+    padding: 20px
+
+@media #{$max-sm}
+  #testimonials
+    display: none
+
+.quote
+  color: #fff
+  font-family: 'Cardo', serif
+  font-size: 28px
+  font-weight: normal
+  
+@media #{$md-and-lg}
+  .quote
+    font-size: 24px
+    
+@media #{$md-only}
+  .quote
+    font-size: 20px
+
+.quote-author
+  color: #fff
+  font-size: 13px
+  margin: 10px 0 0 0
+  text-transform: uppercase
+
+.susan-sims
+  background: #53354a
+  
+.ruth-woods
+  background: #5e9F9f
+  
+.victoria-valdez
+  background: #864d48
+
+/* ==============================
+   Download section
+   ============================*/
+
+#download
+  padding: 100px 0
+  h2
+    font-size: 28px
+    font-weight: 300
+    margin: 0 0 10px
+  p
+    font-weight: bold
+    margin: 0 0 30px
+    text-transform: uppercase
+  button
+    font-size: 13px
+    height: 45px
+    width: 300px
+    
+@media #{$max-sm}
+  #download
+    padding: 30px 0 100px
+    
+/* ==============================
+   Footer sections
+   ============================*/
+     
+.informations
+  padding: 70px 0 100px
+  background: #3a3e64
+  h4
+    color: #fff
+    font-size: 14px
+    margin: 0 0 20px
+    text-transform: uppercase
+  p
+    color: #a3a4b2
+    margin: 0
+    
+@media #{$md-and-lg}
+  .informations
+    padding: 70px 0
+    
+@media #{$md-only}
+  .informations
+    padding: 50px 0 30px
+    
+@media #{$max-md}
+  .informations
+    h4
+      margin: 0 0 10px
+    .informations__partial
+      margin: 0 0 20px
+      
+@media #{$max-sm}
+  .informations
+    padding: 30px 0
+    
+.copyrights
+  background: #313454
+  padding: 30px 0
+  p
+    color: #808080
+    font-size: 14px
+    margin: 0
+    
+@media #{$max-sm}
+  .copyrights
+    padding: 15px 0
+      
+.social-icons-footer
+  @extend .social-icons
+  justify-content: center
+  li
+    border-color: #fff
+    &:hover
+      a
+        background: #fff
+        i
+          color: #3a3e64
+    a
+      color: #fff
+    

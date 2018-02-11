@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:700");
+@import url("https://fonts.googleapis.com/css?family=Cardo");
+/* ===========================
+   General
+   @mixin ========================*/
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif; }
+
+.container-fluid {
+  padding: 0; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+p {
+  font-size: 13px; }
+
+.overflow-hidden {
+  overflow: hidden; }
+
+@media only screen and (max-width: 767px) {
+  #features, .team, .download {
+    padding: 60px 0; } }
+
+/* ==========================
+   Social Icons
+   @mixin =======================*/
+.social-icons, .social-icons-team, .social-icons-footer {
+  display: flex; }
+  .social-icons li, .social-icons-team li, .social-icons-footer li {
+    border: 1px solid;
+    height: 40px;
+    margin: 0 6px 0 0;
+    text-align: center;
+    width: 40px; }
+    .social-icons li a, .social-icons-team li a, .social-icons-footer li a {
+      display: block; }
+      .social-icons li a i, .social-icons-team li a i, .social-icons-footer li a i {
+        font-size: 20px;
+        line-height: 40px; }
+
+/* =========================
+   Header
+   @mixin ======================*/
+.header {
+  background: url(../images/Header-background.png);
+  min-height: 650px; }
+  @media only screen and (max-width: 575px) {
+    .header {
+      min-height: 450px; } }
+  .header .navbar {
+    justify-content: space-between; }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .header .navbar {
+    justify-content: center; } }
+
+@media only screen and (max-width: 767px) {
+  .navbar {
+    display: flex;
+    text-align: center;
+    flex-direction: column; } }
+
+.navbar-nav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100px; }
+  .navbar-nav .nav-link {
+    background-size: 300%;
+    background-position: 100% 0;
+    border: 1px solid transparent;
+    border-radius: 0.3em;
+    color: #cccdd3;
+    font-size: 13px;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    transition: 0.1s; }
+    .navbar-nav .nav-link:hover {
+      background-image: linear-gradient(90deg, #dc3545 50%, transparent 50%);
+      background-position: 0 100%;
+      border: 1px solid #dc3545;
+      color: #fff;
+      transition: 0.25s; }
+    .navbar-nav .nav-link:active {
+      background-image: linear-gradient(90deg, #a92935 50%, transparent 50%); }
+
+@media only screen and (max-width: 767px) {
+  .navbar-nav {
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .navbar-nav .nav-link {
+      flex-basis: 45%;
+      line-height: 30px;
+      background: #dc3545;
+      margin: 0 0 10px;
+      padding: 2px; }
+      .navbar-nav .nav-link:last-child {
+        flex-basis: 100%; } }
+
+@media only screen and (max-width: 767px) {
+  .navbar-brand {
+    margin: 0 0 20px; } }
+
+.jumbotron {
+  background: transparent;
+  padding-top: 80px; }
+  .jumbotron .display-4 {
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 auto 25px;
+    text-transform: uppercase;
+    max-width: 750px; }
+  .jumbotron .lead {
+    color: #fff;
+    margin-bottom: 60px; }
+  .jumbotron button {
+    font-size: 13px;
+    height: 45px;
+    width: 200px; }
+
+@media only screen and (max-width: 767px) {
+  .jumbotron {
+    margin: 30px 0 0;
+    padding: 0 0 30px; }
+    .jumbotron .lead {
+      margin: 0 0 20px; } }
+
+@media only screen and (max-width: 575px) {
+  .jumbotron .display-4 {
+    font-size: 36px; }
+  .jumbotron .lead {
+    font-size: 16px; } }
+
+/* ============================
+   Features section
+   @mixin =========================*/
+#features {
+  padding: 125px 0; }
+  #features .feature:nth-child(-n+3) {
+    margin: 0 0 60px; }
+  #features h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 20px 0;
+    text-transform: uppercase; }
+  #features .rotate {
+    animation: rotate 0.5s ease-in-out; }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #features .feature:nth-child(-n+4) {
+    margin: 0 0 60px; } }
+
+@media only screen and (max-width: 575px) {
+  #features .feature {
+    margin: 0 0 60px; } }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+/* ===========================
+   Gallery
+   @mixin ========================*/
+#works .row {
+  margin: 0; }
+
+#works img {
+  height: calc((100vw / 4) / 1.35);
+  width: 100%; }
+
+#works .layer {
+  background: linear-gradient(#e84545 50%, transparent 50%);
+  opacity: 0.9;
+  bottom: 0;
+  height: 201%;
+  position: absolute;
+  transition: 0.5s;
+  width: 100%; }
+  #works .layer h4 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    top: 20%; }
+  #works .layer p {
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    top: 21%; }
+  #works .layer:hover {
+    animation: slide-down 0.3s;
+    animation-fill-mode: forwards; }
+
+@keyframes slide-down {
+  0% {
+    bottom: 0; }
+  100% {
+    bottom: -101%; } }
+
+#works .modal-dialog {
+  display: inline-block;
+  max-width: none; }
+  #works .modal-dialog .modal-body img {
+    height: auto;
+    width: 600px; }
+  #works .modal-dialog .modal-body p {
+    font-size: 16px;
+    margin: 10px 0 0; }
+
+.modal-open {
+  overflow: scroll;
+  padding: 0 !important; }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #works .layer {
+    max-height: none; } }
+
+@media only screen and (max-width: 991px) {
+  #works img {
+    height: calc((100vw / 2) / 1.35); } }
+
+@media only screen and (max-width: 575px) {
+  #works img {
+    height: calc(100vw / 1.35); } }
+
+/* ===========================
+   Team Section
+   @mixin ========================*/
+#team {
+  padding: 100px 0; }
+  #team img {
+    margin: 0 0 30px; }
+  #team h3 {
+    font-size: 22px; }
+  #team h3 + p {
+    color: #e84545;
+    margin: 0;
+    text-transform: uppercase; }
+  #team p + p {
+    font-size: 14px;
+    margin: 20px 0; }
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  #team .team__member {
+    margin: 0 0 30px 0; } }
+
+@media only screen and (max-width: 991px) {
+  #team .team_member {
+    margin: 0 0 30px; } }
+
+@media only screen and (max-width: 767px) {
+  #team {
+    padding: 100px 0 30px; } }
+
+.social-icons-team li {
+  border-color: #c6cacc; }
+  .social-icons-team li:hover {
+    background: #c6cacc; }
+    .social-icons-team li:hover a {
+      color: #fff; }
+
+.social-icons-team a {
+  color: #c6cacc;
+  font-size: 14px; }
+
+/* ==============================
+   Company Slides section
+   @mixin ===========================*/
+#testimonials .carousel-item {
+  height: calc(100vw / 4); }
+  #testimonials .carousel-item .carousel-inner__img {
+    flex: 50%; }
+    #testimonials .carousel-item .carousel-inner__img img {
+      width: 100%; }
+  #testimonials .carousel-item .quotes-slide {
+    flex: 50%;
+    padding: 70px 150px 150px 70px; }
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  #testimonials .carousel-item .quotes-slide {
+    padding: 50px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #testimonials .carousel-item .quotes-slide {
+    padding: 20px; } }
+
+@media only screen and (max-width: 767px) {
+  #testimonials {
+    display: none; } }
+
+.quote {
+  color: #fff;
+  font-family: 'Cardo', serif;
+  font-size: 28px;
+  font-weight: normal; }
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .quote {
+    font-size: 24px; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .quote {
+    font-size: 20px; } }
+
+.quote-author {
+  color: #fff;
+  font-size: 13px;
+  margin: 10px 0 0 0;
+  text-transform: uppercase; }
+
+.susan-sims {
+  background: #53354a; }
+
+.ruth-woods {
+  background: #5e9F9f; }
+
+.victoria-valdez {
+  background: #864d48; }
+
+/* ==============================
+   Download section
+   @mixin ===========================*/
+#download {
+  padding: 100px 0; }
+  #download h2 {
+    font-size: 28px;
+    font-weight: 300;
+    margin: 0 0 10px; }
+  #download p {
+    font-weight: bold;
+    margin: 0 0 30px;
+    text-transform: uppercase; }
+  #download button {
+    font-size: 13px;
+    height: 45px;
+    width: 300px; }
+
+@media only screen and (max-width: 767px) {
+  #download {
+    padding: 30px 0 100px; } }
+
+/* ==============================
+   Footer sections
+   @mixin ===========================*/
+.informations {
+  padding: 70px 0 100px;
+  background: #3a3e64; }
+  .informations h4 {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 0 20px;
+    text-transform: uppercase; }
+  .informations p {
+    color: #a3a4b2;
+    margin: 0; }
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+  .informations {
+    padding: 70px 0; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .informations {
+    padding: 50px 0 30px; } }
+
+@media only screen and (max-width: 991px) {
+  .informations h4 {
+    margin: 0 0 10px; }
+  .informations .informations__partial {
+    margin: 0 0 20px; } }
+
+@media only screen and (max-width: 767px) {
+  .informations {
+    padding: 30px 0; } }
+
+.copyrights {
+  background: #313454;
+  padding: 30px 0; }
+  .copyrights p {
+    color: #808080;
+    font-size: 14px;
+    margin: 0; }
+
+@media only screen and (max-width: 767px) {
+  .copyrights {
+    padding: 15px 0; } }
+
+.social-icons-footer {
+  justify-content: center; }
+  .social-icons-footer li {
+    border-color: #fff; }
+    .social-icons-footer li:hover a {
+      background: #fff; }
+      .social-icons-footer li:hover a i {
+        color: #3a3e64; }
+    .social-icons-footer li a {
+      color: #fff; }

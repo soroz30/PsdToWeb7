@@ -6,12 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "sass": "node-sass sass/style.sass -o styles"
+    "sass": "node-sass sass/style.sass -o styles",
+    "minify:js": "uglifyjs scripts/script.js -o build/script.min.js",
+    "minify:css": "cleancss -o build/styles.min.css styles/style.css",
+    "build": "npm run sass && npm run minify:js && npm run minify:css",
+    "lint": "jshint scripts/*.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
     "node-sass": "^4.7.2"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^4.1.10",
+    "jshint": "^2.9.5",
+    "uglify-es": "^3.3.9"
   }
 }

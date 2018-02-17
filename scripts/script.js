@@ -14,7 +14,7 @@ const toggleModals = matches => {
             modals[i].setAttribute('data-toggle', 'modal');
         }
     }
-}
+};
 
 toggleModals(mobileViewport.matches);
 mobileViewport.addListener(mq => toggleModals(mq.matches));
@@ -27,12 +27,12 @@ for (let i = 0; i < animated.length; i++) {
         setTimeout(() => {
             e.target.classList.remove('rotate');
         }, 500);
-    })
+    });
 }
 
 for (let i = 0; i < layers.length; i++) {
     layers[i].addEventListener('mouseup', e => {
-        e.currentTarget.style['animation-fill-mode'] = 'none'
+        e.currentTarget.style['animation-fill-mode'] = 'none';
         e.currentTarget.addEventListener('mouseleave', (e) => {
             e.currentTarget.style['animation-fill-mode'] = 'forwards';
         });

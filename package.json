@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "critical": "critical dist/index.html --inline -c dist/styles.min.css --dest dist/index.html",
+    "critical": "critical dist/index.html --inline --extract -c dist/styles.min.css --dest dist/index.html",
     "sass": "node-sass assets/sass/style.sass > dist/styles.min.css",
     "autoprefixer": "npx postcss dist/styles.min.css --replace --use autoprefixer",
     "minify:css": "cleancss -o dist/styles.min.css dist/styles.min.css",

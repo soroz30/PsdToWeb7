@@ -6,10 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "sass": "node-sass sass/style.sass -o styles",
-    "minify:js": "uglifyjs scripts/script.js -o build/script.min.js",
-    "minify:css": "cleancss -o build/styles.min.css styles/style.css",
-    "build": "npm run sass && npm run minify:js && npm run minify:css",
+    "sass": "node-sass assets/sass/style.sass > dist/styles.min.css",
+    "autoprefixer": "npx postcss dist/styles.min.css --replace --use autoprefixer",
+    "minify:css": "cleancss -o dist/styles.min.css dist/styles.min.css",
+    "build:css": "npm run sass && npm run autoprefixer && npm run minify:css",
+    "minify:js": "uglifyjs assets/scripts/*.js -o dist/script.min.js",
+    "build": "npm run build:css && npm run minify:js",
+    "watch": "watch 'npm run build' ./assets",
     "lint": "jshint scripts/*.js"
   },
   "author": "",
@@ -19,8 +22,11 @@
     "node-sass": "^4.7.2"
   },
   "devDependencies": {
+    "autoprefixer": "7.2.6",
     "clean-css-cli": "^4.1.10",
     "jshint": "^2.9.5",
-    "uglify-es": "^3.3.9"
+    "postcss-cli": "^5.0.0",
+    "uglify-es": "^3.3.10",
+    "watch": "^1.0.2"
   }
 }

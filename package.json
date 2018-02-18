@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
+    "critical": "critical dist/index.html --inline -c dist/styles.min.css --dest dist/index.html",
     "sass": "node-sass assets/sass/style.sass > dist/styles.min.css",
     "autoprefixer": "npx postcss dist/styles.min.css --replace --use autoprefixer",
     "minify:css": "cleancss -o dist/styles.min.css dist/styles.min.css",
     "build:css": "npm run sass && npm run autoprefixer && npm run minify:css",
     "minify:js": "uglifyjs assets/scripts/*.js -o dist/script.min.js",
-    "build": "npm run build:css && npm run minify:js",
+    "build": "npm run build:css && npm run minify:js && npm run critical",
     "watch": "watch 'npm run build' ./assets",
-    "lint": "jshint scripts/*.js",
-    "critical": "critical https://soroz30.github.io/PsdToWeb7/  --inline -c dist/styles.min.css --dest dist/index.html"
+    "lint": "jshint scripts/*.js"
   },
   "author": "",
   "license": "ISC",

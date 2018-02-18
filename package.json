@@ -14,7 +14,7 @@
     "build": "npm run build:css && npm run minify:js",
     "watch": "watch 'npm run build' ./assets",
     "lint": "jshint scripts/*.js",
-    "criticalcss": "criticalcss -u https://soroz30.github.io/PsdToWeb7 -f dist/styles.min.css -o dist/critical.min.css"
+    "critical": "critical https://soroz30.github.io/PsdToWeb7/  --inline -c dist/styles.min.css --dest dist/index.html"
   },
   "author": "",
   "license": "ISC",
@@ -25,7 +25,7 @@
   "devDependencies": {
     "autoprefixer": "7.2.6",
     "clean-css-cli": "^4.1.10",
-    "criticalcss": "^2.1.0",
+    "critical": "^1.1.0",
     "jshint": "^2.9.5",
     "postcss-cli": "^5.0.0",
     "uglify-es": "^3.3.10",

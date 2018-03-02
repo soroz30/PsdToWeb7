@@ -6,15 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "critical": "critical dist/index.html -c dist/styles.min.css --dest dist/critical.min.css",
+    "critical": "critical dist/index.html --inline -c dist/styles.min.css --dest dist/critical.min.css",
     "sass": "node-sass assets/sass/style.sass > dist/styles.min.css",
     "autoprefixer": "npx postcss dist/styles.min.css --replace --use autoprefixer",
     "minify:css": "cleancss -o dist/styles.min.css dist/styles.min.css",
-    "build:css": "npm run sass && npm run autoprefixer && npm run minify:css",
+    "build:css": "npm run sass && npm run autoprefixer && npm run minify:css && npm run prefix",
     "minify:js": "uglifyjs assets/scripts/*.js -o dist/script.min.js",
     "build": "npm run build:css && npm run minify:js && npm run critical",
     "watch": "watch 'npm run build' ./assets",
-    "lint": "jshint scripts/*.js"
+    "lint": "jshint scripts/*.js",
+    "prefix": "npx autoprefixer --version"
   },
   "author": "",
   "license": "ISC",
